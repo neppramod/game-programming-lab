@@ -34,8 +34,7 @@ void GotoXY(int x, int y)
 }
 
 void DrawWall(const Wall &wall)
-{
-	
+{	
 	if (wall.direction == 0) {
 		for (int i = wall.startX; i < wall.startX + wall.length; i++) {
 			GotoXY(i, wall.startY);
@@ -71,7 +70,6 @@ void ReadDungeon(string filename, vector<Wall>& walls)
 }
 
 /*
-
 int main(void)
 {
 	system("cls");
@@ -93,7 +91,6 @@ int main(void)
 	_getch();
 	return 0;
 }
-
 */
 
 int main(void)
