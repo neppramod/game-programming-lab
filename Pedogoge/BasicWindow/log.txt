@@ -1,0 +1,8 @@
+colorBlue:0.1
+colorGreen:0.2
+colorRed:0.6
+height:600
+startX:80
+startY:80
+title:Game Window
+width:400
