@@ -1,5 +1,8 @@
 #include "MyGameWindow.h"
 #include <gl\glew.h>
+#include <string>
+
+using namespace std;
 
 MyGameWindow *MyGameWindow::self;
 
@@ -124,6 +127,7 @@ LRESULT CALLBACK MyGameWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, L
 			self->log("F2: Black > Red > Black");
 			self->log("F3: Black > White > Black");
 			self->log("F4: Red > Green > Blue > Green > Red");
+			self->log("F5: Show color values");
 		}
 		else if (wParam == VK_ESCAPE) {
 			self->log("Exiting!");
@@ -144,6 +148,12 @@ LRESULT CALLBACK MyGameWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, L
 			self->clearScreen(1.0f, 0.0f, 0.0f);		
 			self->tmpColorState = RED_GREEN;
 			self->update();
+		}
+		else if (wParam == VK_F5) {
+			string colorStr = "Red: " + to_string(self->background.red) + ", Green: " + to_string(self->background.green) + 
+				", Blue: " + to_string(self->background.blue);
+			self->log(colorStr);
+			
 		}
 		return 0;
 	}
