@@ -45,7 +45,8 @@ public:
 protected:
 	bool setupShaders();
 
-	void createsecondI();	
+	//void createsecondI();	
+	void createUI();
 };
 
 #endif
