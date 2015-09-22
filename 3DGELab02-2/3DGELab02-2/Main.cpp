@@ -20,9 +20,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	TextFileReader reader;
 	reader.setLogger(logger);
-	//string vertexCode = reader.readCotents("basicvertexshader.glsl");
-	string vertexCode = reader.readCotents("basicvertexshader2.glsl");
-	//string vertexCode = reader.readCotents("basicvertexshader3.glsl");
+	
+	string vertexCode = reader.readCotents("basicvertexshader.glsl");	
 
 	OGLVertexShader * vertexShader = new OGLVertexShader((GLchar *)vertexCode.c_str());
 	vertexShader->setLogger(logger);

@@ -186,13 +186,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="basicvertexshader.glsl" />
-    <None Include="basicvertexshader2.glsl" />
-    <None Include="basicvertexshader3.glsl" />
     <None Include="drawing.dat" />
     <None Include="window.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="drawing1.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

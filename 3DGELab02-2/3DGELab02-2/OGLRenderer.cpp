@@ -3,6 +3,8 @@
 #include "OGLShaderCompiler.h"
 #include "OGLShaderProgram.h"
 
+#define GRAPHICS_FILE "drawing.dat"
+
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -17,12 +19,12 @@ OGLRenderer::OGLRenderer(
 	this->shaderProgram = shaderProgram;
 
 	
-	//this->objects["background"] = new OGLObject("background");
 	this->objects["points"] = new OGLObject("points");
 	this->objects["court"] = new OGLObject("court");
 	this->objects["lines"] = new OGLObject("lines");
 	this->objects["poles"] = new OGLObject("poles");
 	this->objects["net"] = new OGLObject("net");
+	this->objects["flags"] = new OGLObject("flags");
 }
 
 // Reads data from a configuration file. This file should have been in a utility class
@@ -56,9 +58,7 @@ OGLRenderer::~OGLRenderer(void)
 
 bool OGLRenderer::create()
 {
-	if (this->setupShaders()) {				
-		//this->createsecondI();
-		//this->createBackground();
+	if (this->setupShaders()) {
 		this->createUI();
 		return true;
 	}
@@ -90,14 +90,12 @@ bool OGLRenderer::setupShaders()
 // Create UI
 void OGLRenderer::createUI()
 {
-	ReadGraphicsFile("drawing.dat", siVertexData);
+	ReadGraphicsFile(GRAPHICS_FILE, siVertexData);
 	int vertexSize = 6 * sizeof(GLfloat);
-
-	// I ignore first 6 vertices. I was used previously to create background
 
 	// Create two points (2 vertices)
 	VBOObject * points = OGLObject::createVBOObject("points");
-	points->buffer = &siVertexData[6]; // Starting at 7th line
+	points->buffer = &siVertexData[0]; // Starting at 7th line
 	points->primitiveType = GL_POINTS;
 	points->bufferSizeInBytes = 2 * vertexSize;
 	points->numberOfVertices = 2;
@@ -113,7 +111,7 @@ void OGLRenderer::createUI()
 
 	// Create court (6 vertices)
 	VBOObject * trianglesCourt = OGLObject::createVBOObject("trianglesCourt");
-	trianglesCourt->buffer = &siVertexData[8]; // 6 data for court
+	trianglesCourt->buffer = &siVertexData[2]; // 6 data for court
 	trianglesCourt->primitiveType = GL_TRIANGLES;
 	trianglesCourt->bufferSizeInBytes = 6 * vertexSize;
 	trianglesCourt->numberOfVertices = 6;
@@ -129,7 +127,7 @@ void OGLRenderer::createUI()
 
 	// Court lines (3 lines = 6 vertices)
 	VBOObject * lines = OGLObject::createVBOObject("lines");
-	lines->buffer = &siVertexData[14]; // 6 data for 3 lines
+	lines->buffer = &siVertexData[8]; // 6 data for 3 lines
 	lines->primitiveType = GL_LINES;
 	lines->bufferSizeInBytes = 6 * vertexSize;
 	lines->numberOfVertices = 6;
@@ -145,7 +143,7 @@ void OGLRenderer::createUI()
 
 	// Create two poles (4 vertices)
 	VBOObject * poles = OGLObject::createVBOObject("poles");
-	poles->buffer = &siVertexData[20]; // 4 data for 2 poles
+	poles->buffer = &siVertexData[14]; // 4 data for 2 poles
 	poles->primitiveType = GL_LINES;
 	poles->bufferSizeInBytes = 4 * vertexSize;
 	poles->numberOfVertices = 4;
@@ -161,7 +159,7 @@ void OGLRenderer::createUI()
 
 	// Create net (Two triangles = 6 vertices)
 	VBOObject * net = OGLObject::createVBOObject("net");
-	net->buffer = &siVertexData[24]; // 6 data for net
+	net->buffer = &siVertexData[18]; // 6 data for net
 	net->primitiveType = GL_TRIANGLES;
 	net->bufferSizeInBytes = 6 * vertexSize;
 	net->numberOfVertices = 6;
@@ -174,4 +172,22 @@ void OGLRenderer::createUI()
 	net->colorComponent.bytesToFirst = sizeof(GLfloat) * 3;
 	net->colorComponent.bytesToNext = sizeof(Vertex);
 	this->objects["net"]->addVBOObject(net);
+
+	// Create flags (Two triangles = 6 vertices)
+	
+	VBOObject * flags = OGLObject::createVBOObject("flags");
+	flags->buffer = &siVertexData[24]; // 6 data for flags
+	flags->primitiveType = GL_TRIANGLES;
+	flags->bufferSizeInBytes = 6 * vertexSize;
+	flags->numberOfVertices = 6;
+	flags->positionComponent.count = 3;
+	flags->positionComponent.type = GL_FLOAT;
+	flags->positionComponent.bytesToFirst = 0;
+	flags->positionComponent.bytesToNext = sizeof(Vertex);
+	flags->colorComponent.count = 3;
+	flags->colorComponent.type = GL_FLOAT;
+	flags->colorComponent.bytesToFirst = sizeof(GLfloat) * 3;
+	flags->colorComponent.bytesToNext = sizeof(Vertex);
+	this->objects["flags"]->addVBOObject(flags);
+	
 }

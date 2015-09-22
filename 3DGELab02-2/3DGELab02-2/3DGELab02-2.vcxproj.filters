@@ -130,13 +130,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="basicvertexshader.glsl" />
-    <None Include="basicvertexshader2.glsl" />
-    <None Include="basicvertexshader3.glsl" />
     <None Include="drawing.dat" />
     <None Include="window.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="drawing1.dat" />
+    <None Include="basicvertexshader.glsl" />
   </ItemGroup>
 </Project>

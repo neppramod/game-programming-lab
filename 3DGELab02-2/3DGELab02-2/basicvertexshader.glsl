@@ -5,7 +5,6 @@ out vec4 fragColor;
 
 void main()
 {
-	vec4 transformed = vec4(position * .01, 1.0);
-	gl_Position = transformed;
+	gl_Position = vec4(position, 1.0);
 	fragColor = vec4(vertexColor, 1.0);
 }

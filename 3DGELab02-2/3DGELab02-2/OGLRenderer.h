@@ -29,10 +29,8 @@ protected:
 	OGLShaderCompiler * fragmentShader;
 	OGLShaderProgram * shaderProgram;
    
-	map<string, OGLObject*>objects;
-	vector<Vertex> siVertexData;
-	Vertex squareVertexData[6];  // For background
-	float delta = 0.01f;
+	map<string, OGLObject*>objects; // To draw all the objects
+	vector<Vertex> siVertexData; 	
 	
 public:
 	OGLRenderer(OGLShaderCompiler * vertexShader, OGLShaderCompiler * fragmentShader, OGLShaderProgram * shaderProgram);
@@ -42,14 +40,10 @@ public:
 	void renderObjects();
 	void ReadGraphicsFile(string filename, vector<Vertex> & vertices);
 
-
 protected:
 	bool setupShaders();
-
-	//void createsecondI();	
 	void createUI();
 
-	//void createBackground();
 };
 
 #endif
