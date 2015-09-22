@@ -66,6 +66,9 @@
     <ClCompile Include="WindowsConsoleLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Configuration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseShader.h">
@@ -119,12 +122,19 @@
     <ClInclude Include="WindowsConsoleLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Configuration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stringformat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="basicvertexshader.glsl" />
     <None Include="basicvertexshader2.glsl" />
     <None Include="basicvertexshader3.glsl" />
     <None Include="drawing.dat" />
+    <None Include="window.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="drawing1.dat" />

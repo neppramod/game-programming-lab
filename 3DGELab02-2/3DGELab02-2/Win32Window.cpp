@@ -2,7 +2,7 @@
 #include "WindowsConsoleLogger.h"
 
 Win32Window::Win32Window(wstring title, int width, int height)
-{
+{	
 	this->title = title;
 	this->width = width;
 	this->height = height;

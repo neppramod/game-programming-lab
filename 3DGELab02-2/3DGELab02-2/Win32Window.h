@@ -18,7 +18,7 @@ protected:
 	HWND windowHandle;
 	HINSTANCE windowInstance;
 	WNDPROC WndProcedure;
-	bool timeToExit;
+	bool timeToExit;	
 
 public:
 	Win32Window(wstring title, int width, int height);

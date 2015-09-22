@@ -1,6 +1,8 @@
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "opengl32.lib")
 
+#define CONFIG_FILE_NAME "window.config"
+
 #include "WindowsConsoleLogger.h"
 #include "GameWindow.h"
 #include "OGLRenderer.h"
@@ -8,10 +10,13 @@
 #include "OGLFragmentShader.h"
 #include "OGLShaderProgram.h"
 #include "TextFileReader.h"
+#include "Configuration.h"
+
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Logger* logger = new WCLogger();
+	Configuration *configuration = new Configuration(CONFIG_FILE_NAME);
 
 	TextFileReader reader;
 	reader.setLogger(logger);
@@ -30,8 +35,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Renderer * renderer = new OGLRenderer(vertexShader, fragmentShader, shaderProgram);
 	renderer->setLogger(logger);
+		
+	GameWindow *window = new GameWindow(renderer, configuration->getTitle(), configuration->getWidth(), 
+		configuration->getHeight());
 
-	GameWindow *window = new GameWindow(renderer, L"The Game Window", 1000, 800);
 	window->setLogger(logger);
 
 	if (window->create()) {

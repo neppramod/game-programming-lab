@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseShader.cpp" />
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GenericWindow.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseShader.h" />
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GenericWindow.h" />
     <ClInclude Include="Logger.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="OGLVertexShader.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RGBA.h" />
+    <ClInclude Include="Stringformat.h" />
     <ClInclude Include="TextFileReader.h" />
     <ClInclude Include="Win32OGLWindow.h" />
     <ClInclude Include="Win32Window.h" />
@@ -186,6 +189,7 @@
     <None Include="basicvertexshader2.glsl" />
     <None Include="basicvertexshader3.glsl" />
     <None Include="drawing.dat" />
+    <None Include="window.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="drawing1.dat" />
