@@ -9,7 +9,6 @@
 #include <map>
 #include <vector>
 
-
 using namespace std;
 using std::map;
 
@@ -32,6 +31,8 @@ protected:
    
 	map<string, OGLObject*>objects;
 	vector<Vertex> siVertexData;
+	Vertex squareVertexData[6];  // For background
+	float delta = 0.01f;
 	
 public:
 	OGLRenderer(OGLShaderCompiler * vertexShader, OGLShaderCompiler * fragmentShader, OGLShaderProgram * shaderProgram);
@@ -47,6 +48,8 @@ protected:
 
 	//void createsecondI();	
 	void createUI();
+
+	//void createBackground();
 };
 
 #endif

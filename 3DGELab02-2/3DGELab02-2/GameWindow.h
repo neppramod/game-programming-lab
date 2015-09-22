@@ -12,6 +12,7 @@ class GameWindow :
 private:
 	static GameWindow *self;
 	Renderer* renderer;
+	float delta = 0.0002f;
 
 public:
 	GameWindow(Renderer* renderer, wstring title, int width, int height);

@@ -17,7 +17,7 @@ OGLRenderer::OGLRenderer(
 	this->shaderProgram = shaderProgram;
 
 	
-	this->objects["background"] = new OGLObject("background");
+	//this->objects["background"] = new OGLObject("background");
 	this->objects["points"] = new OGLObject("points");
 	this->objects["court"] = new OGLObject("court");
 	this->objects["lines"] = new OGLObject("lines");
@@ -58,6 +58,7 @@ bool OGLRenderer::create()
 {
 	if (this->setupShaders()) {				
 		//this->createsecondI();
+		//this->createBackground();
 		this->createUI();
 		return true;
 	}
@@ -92,21 +93,7 @@ void OGLRenderer::createUI()
 	ReadGraphicsFile("drawing.dat", siVertexData);
 	int vertexSize = 6 * sizeof(GLfloat);
 
-	// Create background (6 vertices)
-	VBOObject * triangles = OGLObject::createVBOObject("triangles");
-	triangles->buffer = &siVertexData[0]; // 6 data for background
-	triangles->primitiveType = GL_TRIANGLES;
-	triangles->bufferSizeInBytes = 6 * vertexSize;
-	triangles->numberOfVertices = 6;
-	triangles->positionComponent.count = 3;
-	triangles->positionComponent.type = GL_FLOAT;
-	triangles->positionComponent.bytesToFirst = 0;
-	triangles->positionComponent.bytesToNext = sizeof(Vertex);
-	triangles->colorComponent.count = 3;
-	triangles->colorComponent.type = GL_FLOAT;
-	triangles->colorComponent.bytesToFirst = sizeof(GLfloat) * 3;
-	triangles->colorComponent.bytesToNext = sizeof(Vertex);
-	this->objects["background"]->addVBOObject(triangles);
+	// I ignore first 6 vertices. I was used previously to create background
 
 	// Create two points (2 vertices)
 	VBOObject * points = OGLObject::createVBOObject("points");
@@ -188,4 +175,3 @@ void OGLRenderer::createUI()
 	net->colorComponent.bytesToNext = sizeof(Vertex);
 	this->objects["net"]->addVBOObject(net);
 }
-

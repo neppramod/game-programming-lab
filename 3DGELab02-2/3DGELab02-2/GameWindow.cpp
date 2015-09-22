@@ -25,6 +25,9 @@ void GameWindow::runOneFrame()
 
 void GameWindow::update()
 {
+	this->background.blue += delta;
+	if (this->background.blue >= 1.0f || this->background.blue <= 0.0f)
+		delta *= -1.0;
 }
 
 bool GameWindow::createRenderer()
@@ -35,6 +38,7 @@ bool GameWindow::createRenderer()
 
 void GameWindow::render()
 {
+
 	glViewport(0, 0, this->width, this->height);
 
 	glClearColor(
