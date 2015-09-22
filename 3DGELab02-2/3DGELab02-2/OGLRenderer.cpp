@@ -156,6 +156,7 @@ void OGLRenderer::createUI()
 	lines->colorComponent.bytesToNext = sizeof(Vertex);
 	this->objects["lines"]->addVBOObject(lines);
 
+	// Create two poles (4 vertices)
 	VBOObject * poles = OGLObject::createVBOObject("poles");
 	poles->buffer = &siVertexData[20]; // 4 data for 2 poles
 	poles->primitiveType = GL_LINES;
@@ -171,7 +172,7 @@ void OGLRenderer::createUI()
 	poles->colorComponent.bytesToNext = sizeof(Vertex);
 	this->objects["poles"]->addVBOObject(poles);
 
-	// Create net
+	// Create net (Two triangles = 6 vertices)
 	VBOObject * net = OGLObject::createVBOObject("net");
 	net->buffer = &siVertexData[24]; // 6 data for net
 	net->primitiveType = GL_TRIANGLES;
