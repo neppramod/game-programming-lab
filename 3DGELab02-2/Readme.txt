@@ -1,0 +1,4 @@
+Project 2-2
+
+I use Lab02 as the basis for this project.
+To read configuration file I created a Configuration class. It is the same class, that I had used in previous project. For reading the graphics data, I had to move the Vertex struct to the Core class (thus create new class), because I created a function called ReadGraphicsFile in Core, that uses Vertex struct to create a vector of vertices. To use Vertex inside the OGLRenderer class I used typedef to redefine Vertex defined in Core, so that I did not have to use Core::Vertex every place it was referenced in OGLRenderer. As before the configuration is read from window.config file. It stores data in "key : value" format. Similarly, I use 

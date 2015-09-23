@@ -6,8 +6,7 @@
 #define GRAPHICS_FILE "drawing.dat"
 
 #include <cstdlib>
-#include <fstream>
-#include <iostream>
+
 
 OGLRenderer::OGLRenderer(
 	OGLShaderCompiler * vertexShader,
@@ -25,28 +24,6 @@ OGLRenderer::OGLRenderer(
 	this->objects["poles"] = new OGLObject("poles");
 	this->objects["net"] = new OGLObject("net");
 	this->objects["flags"] = new OGLObject("flags");
-}
-
-// Reads data from a configuration file. This file should have been in a utility class
-void OGLRenderer::ReadGraphicsFile(string filename, vector<Vertex> & vertices)
-{
-	ifstream fin;
-	fin.open(filename);
-	if (fin.fail()) {
-		cout << "\nThere was error opening the file." << endl;
-		exit(1);
-	}
-
-	while (!fin.eof()) {
-		Vertex vertex;
-		fin >> vertex.x >> vertex.y >> vertex.z >> vertex.red >> vertex.green >> vertex.blue;
-		
-		if (fin.fail()) {
-			break;
-		}
-		
-		vertices.push_back(vertex);
-	}
 }
 
 OGLRenderer::~OGLRenderer(void)
@@ -90,7 +67,7 @@ bool OGLRenderer::setupShaders()
 // Create UI
 void OGLRenderer::createUI()
 {
-	ReadGraphicsFile(GRAPHICS_FILE, siVertexData);
+	core.ReadGraphicsFile(GRAPHICS_FILE, siVertexData);
 	int vertexSize = 6 * sizeof(GLfloat);
 
 	// Create two points (2 vertices)

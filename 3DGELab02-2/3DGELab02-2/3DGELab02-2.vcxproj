@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="BaseShader.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Core.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GenericWindow.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GenericWindow.h" />
     <ClInclude Include="Logger.h" />

@@ -4,6 +4,7 @@
 
 #include "Renderer.h"
 #include "OGLObject.h"
+#include "Core.h"
 
 #include <gl/glew.h>
 #include <map>
@@ -19,18 +20,18 @@ class OGLShaderProgram;
 class OGLRenderer : public Renderer
 {
 protected:
-	struct Vertex {
-		GLfloat x, y, z;
-		GLfloat red, green, blue;
-	};
-		
-
+	
 	OGLShaderCompiler * vertexShader;
 	OGLShaderCompiler * fragmentShader;
 	OGLShaderProgram * shaderProgram;
    
 	map<string, OGLObject*>objects; // To draw all the objects
-	vector<Vertex> siVertexData; 	
+
+	typedef Core::Vertex Vertex;
+	Core core;
+	
+	// To make vector available to file, it had to be put inside Core
+	vector<Vertex> siVertexData;
 	
 public:
 	OGLRenderer(OGLShaderCompiler * vertexShader, OGLShaderCompiler * fragmentShader, OGLShaderProgram * shaderProgram);
