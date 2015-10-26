@@ -1,0 +1,6 @@
+Project 2-2
+
+I use Lab02 as the basis for this project.
+To read configuration file I created a Configuration class. It is the same class, that I had used in previous project. For reading the graphics data, I had to move the Vertex struct to the Core class (thus create new class), because I created a function called ReadGraphicsFile in Core, that uses Vertex struct to create a vector of vertices. To use Vertex inside the OGLRenderer class I used typedef to redefine Vertex defined in Core, so that I did not have to use Core::Vertex every place it was referenced in OGLRenderer. As before, the configuration is read from window.config file. It stores data in "key : value" format. To trim spaces around these values, I use Stringformat.h that creates a trimmed string by trimming spaces from both left and right side of the string. Similarly, I use drawing.dat to store the graphics coordinates (along with colors) one vertex per line. Function createUI creates all the graphics objects. To create the changing background, I used update method of GameWindow class. It uses a small delta value to change the desired background color (in this case blue).
+
+I have pushed the code to https://nepalp@bitbucket.org/nepalp/game-programming-lab.git under 3DGELab02-2 folder.

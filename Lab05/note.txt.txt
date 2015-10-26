@@ -1,0 +1,2 @@
+OGLRenderer::create()
+float* ObjectGenerator::generateCubeoid(float width, float depth, float height)

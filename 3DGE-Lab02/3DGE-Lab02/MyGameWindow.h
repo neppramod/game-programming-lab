@@ -14,8 +14,7 @@ private:
 		float red, green, blue, alpha;
 	};
 
-	RGBA background;
-	bool positiveChanger = true;
+	RGBA background;	
 	static MyGameWindow *self;
 	float delta = 0.0001f;
 

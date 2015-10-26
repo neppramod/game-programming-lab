@@ -110,13 +110,13 @@ bool OGLRenderer::create()
 		int h = rand() % 3 + 1;
 		int x = rand() % 21 - 10;
 		int z = rand() % 21 - 10;
-		string pyramidName = "Cuboid" + std::to_string(i + 3);
-		this->logger->log(pyramidName);
+		string cuboidName = "Cuboid" + std::to_string(i + 3);
+		this->logger->log(cuboidName);
 
 
-		this->objects[pyramidName] = new OGLObject(pyramidName);
-		this->objects[pyramidName]->setVertexData(ObjectGenerator::generateCubeoid(2.0, 2.0, (float)h));
-		data = this->objects[pyramidName]->getVertexData();
+		this->objects[cuboidName] = new OGLObject(cuboidName);
+		this->objects[cuboidName]->setVertexData(ObjectGenerator::generateCubeoid(2.0, 2.0, (float)h));
+		data = this->objects[cuboidName]->getVertexData();
 		triangles = OGLObject::createVBOObject("triangles");
 		triangles->buffer = &data[1];
 		triangles->primitiveType = GL_TRIANGLES;
@@ -130,11 +130,11 @@ bool OGLRenderer::create()
 		triangles->colorComponent.type = GL_FLOAT;
 		triangles->colorComponent.bytesToFirst = sizeof(float) * 144;
 		triangles->colorComponent.bytesToNext = 4 * sizeof(float);
-		this->objects[pyramidName]->addVBOObject(triangles);
-		this->objects[pyramidName]->shaderProgram = shaderProgram3d;
+		this->objects[cuboidName]->addVBOObject(triangles);
+		this->objects[cuboidName]->shaderProgram = shaderProgram3d;
 
 
-		this->objects[pyramidName]->referenceFrame.setPosition((float)x, 0.0f, (float)z);
+		this->objects[cuboidName]->referenceFrame.setPosition((float)x, 0.0f, (float)z);
 	}
 
 
