@@ -1,0 +1,32 @@
+#pragma once
+#ifndef OGL_3D_OBJECT
+#define OGL_3D_OBJECT
+
+#include "OGLObject.h"
+
+#include <string>
+using std::string;
+
+class OGL3DObject :
+	public OGLObject
+{
+protected:
+	string uniformMatrixName;
+
+public:
+	OGL3DObject(const string& name, const string& uniformMatrixName="localToWorldMatrix");
+
+	virtual ~OGL3DObject();
+
+	void setUniformMatrixName(const string& name) { 
+		this->uniformMatrixName = name; 
+	}
+
+	void render();
+
+protected:
+	void sendMatrixToGPU();
+};
+
+#endif
+
