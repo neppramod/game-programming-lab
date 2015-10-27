@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DA5AF996-2565-447F-BB62-32EF9671EE40}</ProjectGuid>
+    <RootNamespace>Lab07</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\MyWindowProjectHomeprops.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\MyWindowProjectHomeprops.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\MyWindowProjectHomeprops.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\MyWindowProjectHomeprops.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BackForthBehavior.cpp" />
+    <ClCompile Include="BaseShader.cpp" />
+    <ClCompile Include="Behavior.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CoreSystem.cpp" />
+    <ClCompile Include="FallAndMoveBehavior.cpp" />
+    <ClCompile Include="FourPointBehavior.cpp" />
+    <ClCompile Include="FourPointPatrolBehavior.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="GameWindow.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="GenericWindow.cpp" />
+    <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="ITimer.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ObjectGenerator.cpp" />
+    <ClCompile Include="ObjectLoader.cpp" />
+    <ClCompile Include="OGL3DObject.cpp" />
+    <ClCompile Include="OGLBaseShader.cpp" />
+    <ClCompile Include="OGLCamera.cpp" />
+    <ClCompile Include="OGLFragmentShader.cpp" />
+    <ClCompile Include="OGLGraphicsSystem.cpp" />
+    <ClCompile Include="OGLObject.cpp" />
+    <ClCompile Include="OGLReferenceFrame.cpp" />
+    <ClCompile Include="OGLShaderCompiler.cpp" />
+    <ClCompile Include="OGLShaderManager.cpp" />
+    <ClCompile Include="OGLShaderProgram.cpp" />
+    <ClCompile Include="OGLSphericalCamera.cpp" />
+    <ClCompile Include="OGLVertexShader.cpp" />
+    <ClCompile Include="OGLViewingFrustum.cpp" />
+    <ClCompile Include="PatrolBehavior.cpp" />
+    <ClCompile Include="PCInputSystem.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
+    <ClCompile Include="StockObjectLoader.cpp" />
+    <ClCompile Include="TextFileReader.cpp" />
+    <ClCompile Include="ViewingFrustum.cpp" />
+    <ClCompile Include="Win32OGLWindow.cpp" />
+    <ClCompile Include="Win32Window.cpp" />
+    <ClCompile Include="WindowsConsoleLogger.cpp" />
+    <ClCompile Include="WindowsTimer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BackForthBehavior.h" />
+    <ClInclude Include="BaseShader.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CoreSystem.h" />
+    <ClInclude Include="FallAndMoveBehavior.h" />
+    <ClInclude Include="FourPointBehavior.h" />
+    <ClInclude Include="FourPointPatrolBehavior.h" />
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="GenericWindow.h" />
+    <ClInclude Include="GraphicsSystem.h" />
+    <ClInclude Include="IBehavior.h" />
+    <ClInclude Include="ITimer.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MathUtil.h" />
+    <ClInclude Include="ObjectGenerator.h" />
+    <ClInclude Include="ObjectLoader.h" />
+    <ClInclude Include="OGL3DObject.h" />
+    <ClInclude Include="OGLBaseShader.h" />
+    <ClInclude Include="OGLCamera.h" />
+    <ClInclude Include="OGLFragmentShader.h" />
+    <ClInclude Include="OGLGraphicsSystem.h" />
+    <ClInclude Include="OGLObject.h" />
+    <ClInclude Include="OGLReferenceFrame.h" />
+    <ClInclude Include="OGLShaderCompiler.h" />
+    <ClInclude Include="OGLShaderManager.h" />
+    <ClInclude Include="OGLShaderProgram.h" />
+    <ClInclude Include="OGLSphericalCamera.h" />
+    <ClInclude Include="OGLVertexShader.h" />
+    <ClInclude Include="OGLViewingFrustum.h" />
+    <ClInclude Include="PatrolBehavior.h" />
+    <ClInclude Include="PCInputSystem.h" />
+    <ClInclude Include="RGBA.h" />
+    <ClInclude Include="ShaderManager.h" />
+    <ClInclude Include="StockObjectLoader.h" />
+    <ClInclude Include="TextFileReader.h" />
+    <ClInclude Include="ViewingFrustum.h" />
+    <ClInclude Include="Win32OGLWindow.h" />
+    <ClInclude Include="Win32Window.h" />
+    <ClInclude Include="WindowsConsoleLogger.h" />
+    <ClInclude Include="WindowsTimer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VertexShader3DPerspective.glsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
