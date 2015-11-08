@@ -4,6 +4,7 @@
 #include "GameObjectManager.h"
 #include "Cuboid.h"
 #include "Turret.h"
+#include "Room.h"
 
 #include <gl\glew.h>
 #include <cstdlib>
@@ -20,9 +21,11 @@ StockObjectLoader::~StockObjectLoader()
 
 void StockObjectLoader::loadObjects(GameObjectManager *gameObjectManager)
 {
+	
 	OGLObject *object;
 	VBOObject* vboObject;
 
+	/*
 	object = new OGL3DObject("Axes");
 	object->setIndexedArrayType();
 	ElementArray arr = ObjectGenerator::generateRightHandedAxesIndexedArray(5);
@@ -33,6 +36,7 @@ void StockObjectLoader::loadObjects(GameObjectManager *gameObjectManager)
 	object->addVBOObject(vboObject);
 	gameObjectManager->addObject("Axes", object);
 
+	
 	object = new OGL3DObject("Ground");
 	object->setIndexedArrayType();
 	arr = ObjectGenerator::generateFlatSurface(10, 10, 20, 20, { 0.0f, 0.4f, 0.0f, 1.0f });
@@ -95,11 +99,23 @@ void StockObjectLoader::loadObjects(GameObjectManager *gameObjectManager)
 	object->referenceFrame.move(glm::vec3(0, 1, 0), 10);
 	object->referenceFrame.rotateX(180);
 	gameObjectManager->addObject("Roof", object);
-
-	object = new Cuboid("Cuboid");
+	*/
+	
+	/*object = new Cuboid("Cuboid");
 	object->referenceFrame.translate(0, 3, -8);
 	gameObjectManager->addObject("Cuboid", object);
-
+	*/
 	object = new Turret("Turret");
 	gameObjectManager->addObject("Turret", object);
+	
+
+	
+
+	object = new Room("Left Room", 10.0f, 10.0f, 10.0f);
+	gameObjectManager->addObject("Left Room", object);
+
+	object = new Room("Right Room", 10.0f, 10.0f, 10.0f);
+	object->referenceFrame.translate(10.0f, 0.0f, 0.0f);
+	object->referenceFrame.rotateY(180.0f);
+	gameObjectManager->addObject("Right Room", object);
 }

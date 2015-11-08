@@ -4,9 +4,9 @@
 Turret::Turret(const string& name) :
 	OGL3DCompositeObject(name)
 {
-	this->base = new Cuboid("base", 2, 2, 2, { 0, 0, 1, 1 });
-	this->torso = new Cuboid("torso", 1, 1, 1);
-	this->turret = new Cuboid("turret", 1.5, 0.5, 0.5, { 1, 0, 1, 1 });
+	this->base = new Cuboid("base", 1, 1, 1, { 0, 0, 1, 1 });
+	this->torso = new Cuboid("torso", 0.5, 0.5, 0.5);
+	this->turret = new Cuboid("turret", 0.75, 0.25, 0.25, { 1, 0, 1, 1 });
 	this->angleY = 0;
 	this->angleZ = 0;
 	this->speedZ = 60;
@@ -49,15 +49,15 @@ void Turret::render()
 	this->base->render();
 	this->frameStack.push();
 	{
-		this->frameStack.translate(0, 1.5f, 0);
+		this->frameStack.translate(0, 0.75f, 0);
 		this->frameStack.rotateY(angleY);
 		this->torso->render(this->frameStack.top());
 		this->frameStack.push();
 		{
-			this->frameStack.translate(0, 0, 0.75f);
+			this->frameStack.translate(0, 0, 0.375f);
 			this->frameStack.rotateY(90);
 			this->frameStack.rotateZ(angleZ);
-			this->frameStack.translate(-0.4f, 0, 0);
+			this->frameStack.translate(-0.2f, 0, 0);
 			this->turret->render(frameStack.top());
 		}
 		this->frameStack.pop();

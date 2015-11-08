@@ -15,7 +15,7 @@ BackForthBehavior::~BackForthBehavior()
 void BackForthBehavior::update(GameObject *object, float elapsedSeconds)
 {
 	OGLObject* obj = (OGLObject*)object;
-	float delta = 10.0f * elapsedSeconds;
+	float delta = 5.0f * elapsedSeconds;
 	this->distanceMoved += delta;
 	switch (this->state) {
 	case MOVING_BACKWARD:

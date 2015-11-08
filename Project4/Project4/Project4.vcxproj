@@ -158,6 +158,7 @@
     <ClCompile Include="OGLVertexShader.cpp" />
     <ClCompile Include="OGLViewingFrustum.cpp" />
     <ClCompile Include="PCInputSystem.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="RotateYBehavior.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="StockObjectLoader.cpp" />
@@ -165,6 +166,8 @@
     <ClCompile Include="TheGame.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="ViewingFrustum.cpp" />
+    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="WallWithDoor.cpp" />
     <ClCompile Include="Win32OGLWindow.cpp" />
     <ClCompile Include="Win32Window.cpp" />
     <ClCompile Include="WindowsConsoleLogger.cpp" />
@@ -208,6 +211,7 @@
     <ClInclude Include="OGLViewingFrustum.h" />
     <ClInclude Include="PCInputSystem.h" />
     <ClInclude Include="RGBA.h" />
+    <ClInclude Include="Room.h" />
     <ClInclude Include="RotateYBehavior.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="StockObjectLoader.h" />
@@ -216,6 +220,8 @@
     <ClInclude Include="Turret.h" />
     <ClInclude Include="Uniform.h" />
     <ClInclude Include="ViewingFrustum.h" />
+    <ClInclude Include="Wall.h" />
+    <ClInclude Include="WallWithDoor.h" />
     <ClInclude Include="Win32OGLWindow.h" />
     <ClInclude Include="Win32Window.h" />
     <ClInclude Include="WindowsConsoleLogger.h" />

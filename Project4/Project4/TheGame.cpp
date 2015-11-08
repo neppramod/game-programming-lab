@@ -207,6 +207,7 @@ void TheGame::setup(ObjectLoader* loader)
 		(OGLFirstPersonCamera *)graphics->getGameWorld()->getCamera();
 	camera->setPosition(0.0f, 5.0f, 10.0f);
 
+	/*
 	LightSource *light = new LightSource();
 	light->setPosition(8.0f, 9.0f, -8.0f);
 	light->setIntensity(0.4f);
@@ -216,8 +217,9 @@ void TheGame::setup(ObjectLoader* loader)
 	light->setPosition(0.0f, 9.0f, 0.0f);
 	light->setIntensity(0.1f);
 	graphics->getGameWorld()->localLights.push_back(light);
-
-	OGLObject* object = (OGLObject*)
+	*/
+	
+	/*OGLObject* object = (OGLObject*)
 		graphics->getGameWorld()->getObjectManager()->getObject("Cuboid");
 	object->setBehavior(new RotateYBehavior(90));
 
@@ -225,7 +227,15 @@ void TheGame::setup(ObjectLoader* loader)
 		graphics->getGameWorld()->getObjectManager()->getObject("Turret");
 	object->referenceFrame.rotateY(45.0f);
 	object->referenceFrame.setPosition(-8, 1.0, -8);
-	object->setBehavior(new BackForthBehavior(20));
+	object->setBehavior(new BackForthBehavior(20));*/
+
+	OGLObject* object = (OGLObject*)
+		graphics->getGameWorld()->getObjectManager()->getObject("Turret");
+	//object->referenceFrame.setPosition(-8, 1.0, -8);
+	object->referenceFrame.translate(-9 / 2, 0, 0);
+	object->referenceFrame.rotateY(90.0f);
+	object->setBehavior(new BackForthBehavior(18));
+	
 }
 
 void TheGame::processInputs()
