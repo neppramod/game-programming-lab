@@ -19,6 +19,8 @@
 #include "GameObjectManager.h"
 #include "PCInputSystem.h"
 #include "BackForthBehavior.h"
+#include "LocalLightSource.h"
+#include "BackForthWithLight.h"
 
 #include <gl\glew.h>
 #include <glm\gtc\type_ptr.hpp>
@@ -207,6 +209,19 @@ void TheGame::setup(ObjectLoader* loader)
 		(OGLFirstPersonCamera *)graphics->getGameWorld()->getCamera();
 	camera->setPosition(0.0f, 5.0f, 10.0f);
 
+	LightSource *leftRoomLight = new LightSource();
+	leftRoomLight->setPosition(0, 10, 0);
+	leftRoomLight->setIntensity(0.0f);
+	//leftRoomLight->setIntensity(0.5f);
+
+	LightSource *rightRoomLight = new LightSource();
+	rightRoomLight->setPosition(10, 10, 0);
+	rightRoomLight->setIntensity(0.5f);
+	//rightRoomLight->setIntensity(0.0f);
+	
+	graphics->getGameWorld()->localLights.push_back(leftRoomLight);
+	graphics->getGameWorld()->localLights.push_back(rightRoomLight);
+
 	/*
 	LightSource *light = new LightSource();
 	light->setPosition(8.0f, 9.0f, -8.0f);
@@ -234,7 +249,12 @@ void TheGame::setup(ObjectLoader* loader)
 	//object->referenceFrame.setPosition(-8, 1.0, -8);
 	object->referenceFrame.translate(-9 / 2, 0, 0);
 	object->referenceFrame.rotateY(90.0f);
-	object->setBehavior(new BackForthBehavior(18));
+
+	BackForthWithLight *backForthWithLight = new BackForthWithLight(18);
+	backForthWithLight->setLeftLightSource(leftRoomLight);
+	backForthWithLight->setRightLightSource(rightRoomLight);
+
+	object->setBehavior(backForthWithLight);
 	
 }
 
