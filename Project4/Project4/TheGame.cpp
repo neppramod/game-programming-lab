@@ -208,47 +208,28 @@ void TheGame::setup(ObjectLoader* loader)
 		(OGLFirstPersonCamera *)graphics->getGameWorld()->getCamera();
 	camera->setPosition(0.0f, 5.0f, 10.0f);
 
+	// Two light sources
 	LightSource *leftRoomLight = new LightSource();
 	leftRoomLight->setPosition(0, 8.5f, 0);
 	leftRoomLight->setIntensity(0.0f);
-	
 
 	LightSource *rightRoomLight = new LightSource();
 	rightRoomLight->setPosition(10, 8.5f, 0);
-	rightRoomLight->setIntensity(0.5f);
-	
+	rightRoomLight->setIntensity(0.5f);	
 	
 	graphics->getGameWorld()->localLights.push_back(leftRoomLight);
 	graphics->getGameWorld()->localLights.push_back(rightRoomLight);
 
-	/*
-	LightSource *light = new LightSource();
-	light->setPosition(8.0f, 9.0f, -8.0f);
-	light->setIntensity(0.4f);
-	graphics->getGameWorld()->localLights.push_back(light);
 
-	light = new LightSource();
-	light->setPosition(0.0f, 9.0f, 0.0f);
-	light->setIntensity(0.1f);
-	graphics->getGameWorld()->localLights.push_back(light);
-	*/
-	
-	/*OGLObject* object = (OGLObject*)
-		graphics->getGameWorld()->getObjectManager()->getObject("Cuboid");
-	object->setBehavior(new RotateYBehavior(90));
-
-	object = (OGLObject*)
-		graphics->getGameWorld()->getObjectManager()->getObject("Turret");
-	object->referenceFrame.rotateY(45.0f);
-	object->referenceFrame.setPosition(-8, 1.0, -8);
-	object->setBehavior(new BackForthBehavior(20));*/
-
+	// Player
 	OGLObject* object = (OGLObject*)
 		graphics->getGameWorld()->getObjectManager()->getObject("Turret");
-	//object->referenceFrame.setPosition(-8, 1.0, -8);
+	
 	object->referenceFrame.translate(-9 / 2, 0, 0);
 	object->referenceFrame.rotateY(90.0f);
 
+	// Player moves between rooms and when enters the room the light in the moving room switches on 
+	// and the light on the leaving room switches off
 	BackForthWithLight *backForthWithLight = new BackForthWithLight(18);
 	backForthWithLight->setLeftLightSource(leftRoomLight);
 	backForthWithLight->setRightLightSource(rightRoomLight);
