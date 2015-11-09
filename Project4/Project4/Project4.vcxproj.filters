@@ -177,6 +177,9 @@
     <ClCompile Include="Configuration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackForthBehavior.h">
@@ -350,11 +353,15 @@
     <ClInclude Include="Stringformat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="FragmentShader3DIllumination.glsl" />
     <None Include="VertexShader3DIllumination.glsl" />
     <None Include="VertexShader3DPerspective.glsl" />
     <None Include="window.config" />
+    <None Include="graphics.dat" />
   </ItemGroup>
 </Project>

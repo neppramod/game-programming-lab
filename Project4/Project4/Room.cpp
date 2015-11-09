@@ -13,25 +13,47 @@ Room::Room(const string& name, float width, float height, float depth):
 	this->width = width;
 	this->depth = depth;
 	this->height = height;
+
+	// Read the graphics data
+	core.ReadGraphicsFile(GRAPHICS_FILE, siVertexData);
+
+	int i = 0; // This will help iterate the siVertexData;
+
 	
 	// Walls
-	this->floor = new Wall("Floor", this->width, this->depth, this->thickness, { 0.5, 0.5f, 0, 1 });
-	this->ceiling = new Wall("Ceiling", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
-	this->northWall = new Wall("NorthWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
-	this->southWall = new Wall("SouthWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
-	this->westWall = new Wall("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
-	this->eastWall = new WallWithDoor("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
+	this->floor = new Wall("Floor", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
+
+	this->ceiling = new Wall("Ceiling", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
+
+	this->northWall = new Wall("NorthWall", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
+
+	this->southWall = new Wall("SouthWall", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
+
+	this->westWall = new Wall("WestWall", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
+
+	this->eastWall = new WallWithDoor("WestWall", this->width, this->depth, this->thickness, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue, 1 });
+	i++;
 
 	// Light source (stacked one over another)
-	this->lightSourceObject = new Cuboid("LightSource", 0.5, 0.5, 0.5, { 0.5f, 0.5f, 0 });
-	this->lightSourceSecondObject = new Cuboid("LightSource2", 0.25, 0.25, 0.25, { 1.0f, 1.0f, 0 });
+	this->lightSourceObject = new Cuboid("LightSource", siVertexData[i].x, siVertexData[i].y, siVertexData[i].z, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue });
+	i++;
+
+	this->lightSourceSecondObject = new Cuboid("LightSource2", siVertexData[i].x, siVertexData[i].y, siVertexData[i].z, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue });
+	i++;
 
 	// Add a table
 	this->table = new Table("Table");
 
 	// Add a chair
-	this->chair = new Chair("Chair", 1, 1, 1, 0.1f, { 0,0,1.0f });
-	this->chair2 = new Chair("Chair2", 1, 1, 1, 0.1f, { 0,0,1.0f });
+	this->chair = new Chair("Chair", siVertexData[i].x, siVertexData[i].y, siVertexData[i].z, 0.1f, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue });
+	i++;
+
+	this->chair2 = new Chair("Chair2", siVertexData[i].x, siVertexData[i].y, siVertexData[i].z, 0.1f, { siVertexData[i].red, siVertexData[i].green, siVertexData[i].blue});	
 }
 
 

@@ -129,6 +129,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chair.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Core.cpp" />
     <ClCompile Include="CoreSystem.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chair.h" />
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="CoreSystem.h" />
     <ClInclude Include="Cuboid.h" />
     <ClInclude Include="GameEngine.h" />
@@ -238,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FragmentShader3DIllumination.glsl" />
+    <None Include="graphics.dat" />
     <None Include="VertexShader3DIllumination.glsl" />
     <None Include="VertexShader3DPerspective.glsl" />
     <None Include="window.config" />
