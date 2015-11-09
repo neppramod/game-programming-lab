@@ -2,6 +2,8 @@
 #include "Cuboid.h"
 #include "Wall.h"
 #include "WallWithDoor.h"
+#include "Table.h"
+#include "Chair.h"
 
 
 Room::Room(const string& name, float width, float height, float depth):
@@ -11,13 +13,21 @@ Room::Room(const string& name, float width, float height, float depth):
 	this->width = width;
 	this->depth = depth;
 	this->height = height;
-		
+	
+	// Walls
 	this->floor = new Wall("Floor", this->width, this->depth, this->thickness, { 0.5, 0.5f, 0, 1 });
 	this->ceiling = new Wall("Ceiling", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 	this->northWall = new Wall("NorthWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 	this->southWall = new Wall("SouthWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 	this->westWall = new Wall("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 	this->eastWall = new WallWithDoor("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
+
+	// Add a table
+	this->table = new Table("Table");
+
+	// Add a chair
+	this->chair = new Chair("Chair", 1, 1, 1, 0.1f, { 0,0,1.0f });
+	this->chair2 = new Chair("Chair2", 1, 1, 1, 0.1f, { 0,0,1.0f });
 }
 
 
@@ -29,6 +39,9 @@ Room::~Room()
 	delete this->southWall;
 	delete this->westWall;
 	delete this->eastWall;
+	delete this->table;
+	delete this->chair;
+	delete this->chair2;
 }
 
 void Room::setShaderProgram(GLuint shaderProgram)
@@ -40,6 +53,9 @@ void Room::setShaderProgram(GLuint shaderProgram)
 	this->southWall->setShaderProgram(this->shaderProgram);
 	this->westWall->setShaderProgram(this->shaderProgram);
 	this->eastWall->setShaderProgram(this->shaderProgram);	
+	this->table->setShaderProgram(this->shaderProgram);
+	this->chair->setShaderProgram(this->shaderProgram);
+	this->chair2->setShaderProgram(this->shaderProgram);
 }
 
 void Room::update(float elapsedSeconds)
@@ -83,6 +99,26 @@ void Room::render()
 		this->frameStack.translate(0, -this->depth / 2, -0.25*this->height);
 		this->frameStack.rotateX(180.0f);
 		this->eastWall->render(this->frameStack.top());
+
+		// Table
+		this->frameStack.translate(0, 0, 0);
+		this->frameStack.rotateX(90.0f);
+		this->frameStack.translate(0, this->height - 3.0f, 0);
+		this->frameStack.rotateY(90.0f);
+		this->frameStack.translate(this->width / 2, 0, 0);  // At this point the reference is pointing at the center of the room
+
+		this->frameStack.translate(0, 0, -this->depth / 2 + 2.0f);
+		this->table->render(this->frameStack.top());
+
+		// Chair
+		this->frameStack.translate(2.0f, 0, 0);
+		this->frameStack.rotateY(180);
+		this->chair->render(this->frameStack.top());
+
+		// Chair 2
+		this->frameStack.translate(4.0f, 0, 0);
+		this->frameStack.rotateY(180);
+		this->chair->render(this->frameStack.top());
 	}
 	this->frameStack.pop();
 }

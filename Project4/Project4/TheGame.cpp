@@ -19,7 +19,6 @@
 #include "GameObjectManager.h"
 #include "PCInputSystem.h"
 #include "BackForthBehavior.h"
-#include "LocalLightSource.h"
 #include "BackForthWithLight.h"
 
 #include <gl\glew.h>

@@ -48,10 +48,8 @@ void BackForthWithLight::update(GameObject *object, float elapsedSeconds)
 				delta = this->distanceMoved - this->maxDistance;
 				this->distanceMoved = 0;
 			}
-
 			
 			// Change light
-
 			if (this->distanceMoved >= this->maxDistance / 2) {
 				this->rightLightSource->setIntensity(0.5f);
 				this->leftLightSource->setIntensity(0.0f);

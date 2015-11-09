@@ -8,6 +8,8 @@
 class Cuboid;
 class Wall;
 class WallWithDoor;
+class Table;
+class Chair;
 
 class Room :
 	public OGL3DCompositeObject
@@ -19,6 +21,9 @@ class Room :
 	Wall *southWall;
 	Wall *westWall;
 	WallWithDoor *eastWall;
+	Table *table;
+	Chair *chair;
+	Chair *chair2;
 
 	
 	float thickness;				// Thickness of wall

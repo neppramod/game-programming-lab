@@ -165,10 +165,13 @@
     <ClCompile Include="WallWithDoor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LocalLightSource.cpp">
+    <ClCompile Include="BackForthWithLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BackForthWithLight.cpp">
+    <ClCompile Include="Table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,10 +332,13 @@
     <ClInclude Include="WallWithDoor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LocalLightSource.h">
+    <ClInclude Include="BackForthWithLight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BackForthWithLight.h">
+    <ClInclude Include="Table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

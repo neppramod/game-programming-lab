@@ -127,6 +127,7 @@
     <ClCompile Include="BaseShader.cpp" />
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Chair.cpp" />
     <ClCompile Include="CoreSystem.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -138,7 +139,6 @@
     <ClCompile Include="GraphicsSystem.cpp" />
     <ClCompile Include="ITimer.cpp" />
     <ClCompile Include="LightSource.cpp" />
-    <ClCompile Include="LocalLightSource.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectGenerator.cpp" />
@@ -164,6 +164,7 @@
     <ClCompile Include="RotateYBehavior.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="StockObjectLoader.cpp" />
+    <ClCompile Include="Table.cpp" />
     <ClCompile Include="TextFileReader.cpp" />
     <ClCompile Include="TheGame.cpp" />
     <ClCompile Include="Turret.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="BackForthWithLight.h" />
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Chair.h" />
     <ClInclude Include="CoreSystem.h" />
     <ClInclude Include="Cuboid.h" />
     <ClInclude Include="GameEngine.h" />
@@ -192,7 +194,6 @@
     <ClInclude Include="IBehavior.h" />
     <ClInclude Include="ITimer.h" />
     <ClInclude Include="LightSource.h" />
-    <ClInclude Include="LocalLightSource.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="ObjectGenerator.h" />
@@ -219,6 +220,7 @@
     <ClInclude Include="RotateYBehavior.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="StockObjectLoader.h" />
+    <ClInclude Include="Table.h" />
     <ClInclude Include="TextFileReader.h" />
     <ClInclude Include="TheGame.h" />
     <ClInclude Include="Turret.h" />
