@@ -24,6 +24,8 @@ class Room :
 	Table *table;
 	Chair *chair;
 	Chair *chair2;
+	Cuboid *lightSourceObject;
+	Cuboid *lightSourceSecondObject;
 
 	
 	float thickness;				// Thickness of wall
