@@ -209,12 +209,12 @@ void TheGame::setup(ObjectLoader* loader)
 	camera->setPosition(0.0f, 5.0f, 10.0f);
 
 	LightSource *leftRoomLight = new LightSource();
-	leftRoomLight->setPosition(0, 10, 0);
+	leftRoomLight->setPosition(0, 8.5f, 0);
 	leftRoomLight->setIntensity(0.0f);
 	//leftRoomLight->setIntensity(0.5f);
 
 	LightSource *rightRoomLight = new LightSource();
-	rightRoomLight->setPosition(10, 10, 0);
+	rightRoomLight->setPosition(10, 8.5f, 0);
 	rightRoomLight->setIntensity(0.5f);
 	//rightRoomLight->setIntensity(0.0f);
 	

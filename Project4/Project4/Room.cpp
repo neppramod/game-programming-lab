@@ -22,6 +22,10 @@ Room::Room(const string& name, float width, float height, float depth):
 	this->westWall = new Wall("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 	this->eastWall = new WallWithDoor("WestWall", this->width, this->depth, this->thickness, { 0.4f, 0.4f, 0, 1 });
 
+	// Light source (stacked one over another)
+	this->lightSourceObject = new Cuboid("LightSource", 0.5, 0.5, 0.5, { 0.5f, 0.5f, 0 });
+	this->lightSourceSecondObject = new Cuboid("LightSource2", 0.25, 0.25, 0.25, { 1.0f, 1.0f, 0 });
+
 	// Add a table
 	this->table = new Table("Table");
 
@@ -42,6 +46,8 @@ Room::~Room()
 	delete this->table;
 	delete this->chair;
 	delete this->chair2;
+	delete this->lightSourceObject;
+	delete this->lightSourceSecondObject;
 }
 
 void Room::setShaderProgram(GLuint shaderProgram)
@@ -56,6 +62,8 @@ void Room::setShaderProgram(GLuint shaderProgram)
 	this->table->setShaderProgram(this->shaderProgram);
 	this->chair->setShaderProgram(this->shaderProgram);
 	this->chair2->setShaderProgram(this->shaderProgram);
+	this->lightSourceObject->setShaderProgram(this->shaderProgram);
+	this->lightSourceSecondObject->setShaderProgram(this->shaderProgram);
 }
 
 void Room::update(float elapsedSeconds)
@@ -93,6 +101,16 @@ void Room::render()
 		this->frameStack.rotateX(90.0f);
 		this->frameStack.translate(0, -this->width / 2, -this->height/2);
 		this->ceiling->render(this->frameStack.top());
+		
+		this->frameStack.push(); // Ceiling
+		{
+			this->frameStack.translate(0, 0, 0);			
+			this->lightSourceObject->render(this->frameStack.top());
+
+			this->frameStack.translate(0, 0.375, 0);
+			this->lightSourceSecondObject->render(this->frameStack.top());
+		}
+		this->frameStack.pop();
 
 		// East Wall
 		this->frameStack.rotateX(90.0f);
