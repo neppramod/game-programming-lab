@@ -22,9 +22,15 @@
 #include "OGLFirstPersonCamera.h"
 #include "LightSource.h"
 #include "TheGame.h"
+#include "Configuration.h"
+
+#define CONFIG_FILE_NAME "window.config"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	// Read configuration for a file
+	Configuration *configuration = new Configuration(CONFIG_FILE_NAME);
+
 	GameEngine gameEngine(
 		new WindowsConsoleLogger(), 
 		new TheGame(),
@@ -36,10 +42,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				new GameObjectManager(),
 				new OGLFirstPersonCamera()),
 			new OGLViewingFrustum()),
-		new GameWindow(
-			L"The Game Window", 
-			1000, 
-			800),
+		new GameWindow(configuration->getTitle(),
+			configuration->getWidth(),
+			configuration->getHeight()),
 		new PCInputSystem(),
 		new WindowsTimer()
 	);

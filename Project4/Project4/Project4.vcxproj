@@ -128,6 +128,7 @@
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chair.cpp" />
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="CoreSystem.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chair.h" />
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="CoreSystem.h" />
     <ClInclude Include="Cuboid.h" />
     <ClInclude Include="GameEngine.h" />
@@ -220,6 +222,7 @@
     <ClInclude Include="RotateYBehavior.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="StockObjectLoader.h" />
+    <ClInclude Include="Stringformat.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="TextFileReader.h" />
     <ClInclude Include="TheGame.h" />
@@ -237,6 +240,7 @@
     <None Include="FragmentShader3DIllumination.glsl" />
     <None Include="VertexShader3DIllumination.glsl" />
     <None Include="VertexShader3DPerspective.glsl" />
+    <None Include="window.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

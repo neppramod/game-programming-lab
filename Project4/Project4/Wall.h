@@ -5,7 +5,7 @@
 
 #include "OGL3DCompositeObject.h"
 
-#define DRAW_AXES true
+#define DRAW_AXES false
 
 class Cuboid;
 
