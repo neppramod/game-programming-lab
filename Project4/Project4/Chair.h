@@ -3,6 +3,9 @@
 
 class Cuboid;
 
+/*
+ A chair object that can be placed in the room
+*/
 class Chair :
 	public OGL3DCompositeObject
 {

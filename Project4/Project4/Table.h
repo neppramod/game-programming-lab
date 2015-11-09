@@ -7,6 +7,9 @@
 
 class Cuboid;
 
+/*
+A table that can be placed in a room
+*/
 class Table :
 	public OGL3DCompositeObject
 {

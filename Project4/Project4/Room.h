@@ -10,7 +10,9 @@ class Wall;
 class WallWithDoor;
 class Table;
 class Chair;
-
+/*
+Create a room
+*/
 class Room :
 	public OGL3DCompositeObject
 {

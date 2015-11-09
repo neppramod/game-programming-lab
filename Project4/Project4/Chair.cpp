@@ -55,8 +55,6 @@ void Chair::render()
 		// frontSupport
 		this->frameStack.translate(this->width/4, -this->height / 2 + this->thickness, 0);
 		this->frameStack.translate(-this->width/2, 0, 0);
-		//this->frameStack.rotateY(180.0f);
-		//this->frameStack.translate(-this->height / 4, -this->width/4, 0);
 		this->frontSupport->render(this->frameStack.top());
 		
 	}

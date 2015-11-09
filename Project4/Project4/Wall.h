@@ -8,7 +8,9 @@
 #define DRAW_AXES false
 
 class Cuboid;
-
+/*
+Wall is used to create room
+ */
 class Wall :
 	public OGL3DCompositeObject
 {
