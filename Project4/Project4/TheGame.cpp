@@ -211,12 +211,12 @@ void TheGame::setup(ObjectLoader* loader)
 	LightSource *leftRoomLight = new LightSource();
 	leftRoomLight->setPosition(0, 8.5f, 0);
 	leftRoomLight->setIntensity(0.0f);
-	//leftRoomLight->setIntensity(0.5f);
+	
 
 	LightSource *rightRoomLight = new LightSource();
 	rightRoomLight->setPosition(10, 8.5f, 0);
 	rightRoomLight->setIntensity(0.5f);
-	//rightRoomLight->setIntensity(0.0f);
+	
 	
 	graphics->getGameWorld()->localLights.push_back(leftRoomLight);
 	graphics->getGameWorld()->localLights.push_back(rightRoomLight);
