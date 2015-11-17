@@ -20,6 +20,7 @@
 #include "PCInputSystem.h"
 #include "BackForthBehavior.h"
 #include "BackForthWithLight.h"
+#include "LightBehavior.h"
 
 #include <gl\glew.h>
 #include <glm\gtc\type_ptr.hpp>
@@ -215,7 +216,7 @@ void TheGame::setup(ObjectLoader* loader)
 
 	LightSource *rightRoomLight = new LightSource();
 	rightRoomLight->setPosition(10, 8.5f, 0);
-	rightRoomLight->setIntensity(0.5f);	
+	rightRoomLight->setIntensity(0.0f);	
 	
 	graphics->getGameWorld()->localLights.push_back(leftRoomLight);
 	graphics->getGameWorld()->localLights.push_back(rightRoomLight);
@@ -228,13 +229,26 @@ void TheGame::setup(ObjectLoader* loader)
 	object->referenceFrame.translate(-9 / 2, 0, 0);
 	object->referenceFrame.rotateY(90.0f);
 
-	// Player moves between rooms and when enters the room the light in the moving room switches on 
+	// Player moves between rooms.
+	// Earlier room lights used to change based on when this player entered the room
+	// This behavior is in my previous git commit.
+
 	// and the light on the leaving room switches off
 	BackForthWithLight *backForthWithLight = new BackForthWithLight(18);
-	backForthWithLight->setLeftLightSource(leftRoomLight);
-	backForthWithLight->setRightLightSource(rightRoomLight);
-
 	object->setBehavior(backForthWithLight);
+
+	// Room
+	// We can get the reference of both room positions just by getting reference of one room.
+	// Now the room lights turn on when player (camera) enters the room and turns off when the player
+	// Leaves the room
+	object = (OGLObject*)
+		graphics->getGameWorld()->getObjectManager()->getObject("Left Room");
+	LightBehavior *lightBehavior = new LightBehavior();
+	lightBehavior->setLeftLightSource(leftRoomLight);
+	lightBehavior->setRightLightSource(rightRoomLight);
+	lightBehavior->setCamera(camera);
+
+	object->setBehavior(lightBehavior);
 	
 }
 

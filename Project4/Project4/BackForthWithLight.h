@@ -9,6 +9,7 @@
 #include <vector>
 
 class LightSource;
+class OGLFirstPersonCamera;
 
 using namespace std;
 
@@ -24,13 +25,12 @@ protected:
 	float distanceMoved;	
 	LightSource *leftLightSource;
 	LightSource *rightLightSource;
+	OGLFirstPersonCamera *camera;
 
 public:
 	BackForthWithLight(float maxDistance = 10.0f);
 	virtual ~BackForthWithLight();
-	void update(GameObject *object, float elapsedSeconds);
-	void setLeftLightSource(LightSource *lightSource);
-	void setRightLightSource(LightSource *lightSource);
+	void update(GameObject *object, float elapsedSeconds);	
 };
 
 #endif

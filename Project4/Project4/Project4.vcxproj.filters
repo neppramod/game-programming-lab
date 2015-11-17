@@ -180,6 +180,9 @@
     <ClCompile Include="Core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LightBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackForthBehavior.h">
@@ -354,6 +357,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightBehavior.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

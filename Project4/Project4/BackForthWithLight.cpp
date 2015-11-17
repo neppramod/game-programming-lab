@@ -2,6 +2,7 @@
 #include "OGLObject.h"
 #include "LightSource.h"
 #include <windows.h>
+#include "OGLFirstPersonCamera.h"
 
 BackForthWithLight::BackForthWithLight(float maxDistance)
 {
@@ -11,6 +12,7 @@ BackForthWithLight::BackForthWithLight(float maxDistance)
 	this->distanceMoved = 0;	
 	this->leftLightSource = NULL;
 	this->rightLightSource = NULL;
+	this->camera = NULL;
 }
 
 
@@ -21,10 +23,13 @@ BackForthWithLight::~BackForthWithLight()
 
 void BackForthWithLight::update(GameObject *object, float elapsedSeconds)
 {	
-	if (this->leftLightSource != NULL && this->rightLightSource != NULL) {
+	if (this->leftLightSource != NULL && this->rightLightSource != NULL && this->camera != NULL) {
 		OGLObject* obj = (OGLObject*)object;
 		float delta = 5.0f * elapsedSeconds;
 		this->distanceMoved += delta;
+		glm::vec3 cameraPosition = this->camera->getPosition();
+
+
 		switch (this->state) {
 		case MOVING_BACKWARD:
 			if (this->distanceMoved >= this->maxDistance) {
@@ -32,13 +37,6 @@ void BackForthWithLight::update(GameObject *object, float elapsedSeconds)
 				delta = this->distanceMoved - this->maxDistance;
 				this->distanceMoved = 0;
 			}
-
-			// Change light
-			if (this->distanceMoved >= this->maxDistance / 2) {
-				this->leftLightSource->setIntensity(0.5f);
-				this->rightLightSource->setIntensity(0.0f);
-			}
-			
 
 			obj->referenceFrame.moveBackward(delta);
 			break;
@@ -49,26 +47,9 @@ void BackForthWithLight::update(GameObject *object, float elapsedSeconds)
 				this->distanceMoved = 0;
 			}
 			
-			// Change light
-			if (this->distanceMoved >= this->maxDistance / 2) {
-				this->rightLightSource->setIntensity(0.5f);
-				this->leftLightSource->setIntensity(0.0f);
-			}
-			
-
 			obj->referenceFrame.moveForward(delta);
 			break;
 		}
 	}
 }
 
-void BackForthWithLight::setLeftLightSource(LightSource *lightSource)
-{
-	this->leftLightSource = lightSource;
-}
-
-
-void BackForthWithLight::setRightLightSource(LightSource *lightSource)
-{
-	this->rightLightSource = lightSource;
-}

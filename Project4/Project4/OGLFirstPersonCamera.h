@@ -64,6 +64,8 @@ public:
 
 	void setJustLooking() { this->upDown = this->leftRight = JUST_LOOKING; }
 
+	glm::vec3 getPosition() { return this->position; }
+
 protected:
 	void updateOrientation();
 };
